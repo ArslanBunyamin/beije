@@ -13,6 +13,18 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        'customBg': '#f9f5f2',
+        'header': 'rgb(245, 245, 245)',
+      },
+      keyframes: {
+        wink: {
+          '50%': { opacity: '0' },
+        }
+      },
+      animation: {
+        'wink': 'wink 2s ease-in-out infinite;'
+      }
     },
   },
   plugins: [],
