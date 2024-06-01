@@ -20,10 +20,16 @@ const config: Config = {
       keyframes: {
         wink: {
           '50%': { opacity: '0' },
+        },
+        scaleUp: {
+          '0%': { transform: 'scaleY(0)', opacity: '0' },
+          '100%': { transform: 'scaleY(1)', opacity: '1' }
         }
+
       },
       animation: {
-        'wink': 'wink 2s ease-in-out infinite;'
+        'wink': 'wink 2s ease-in-out infinite;',
+        'scaleUp': 'scaleUp 0.5s ease'
       }
     },
   },
