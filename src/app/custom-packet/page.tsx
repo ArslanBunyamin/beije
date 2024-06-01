@@ -7,11 +7,14 @@ import Image from "next/image";
 import pedImage from "../../assets/packet.webp";
 import FlipCameraAndroidOutlinedIcon from "@mui/icons-material/FlipCameraAndroidOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+import { useState } from "react";
 
 export default function Page() {
   // The `state` arg is correctly typed as `RootState` already
   const count = useAppSelector((state) => state.counterSlice.value);
   const dispatch = useAppDispatch();
+  const [isCartOpened, setisCartOpened] = useState(false);
 
   return (
     <div className="bg-customBg text-black min-h-screen text-sm flex justify-center p-5 px-8 lg:px-44">
@@ -63,15 +66,51 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="fixed md:hidden bottom-0 bg-white w-full flex flex-col p-3">
-          <div className="p-2 mb-2 w-full flex justify-between">
-            <div>
-              <span className="opacity-70 text-base">Toplam</span>
-              <span>
-                <KeyboardArrowDownIcon className="rotate-180 scale-125 opacity-80" />
-              </span>
+        <div className="fixed md:hidden bottom-0 bg-secondaryBg shadow shadow-black w-full flex flex-col p-3">
+          <div className="flex flex-col gap-5">
+            {isCartOpened ? (
+              <div className="flex items-center gap-3 p-2 shadow animate-scaleUp">
+                <FlipCameraAndroidOutlinedIcon
+                  style={{ width: "1rem", aspectRatio: 1 }}
+                />
+                2 ayda 1 gönderim
+              </div>
+            ) : (
+              ""
+            )}
+            {isCartOpened ? (
+              <div className="p-6 flex justify-between items-center animate-scaleUp">
+                <div className="">
+                  <div className="text-lg font-bold opacity-80">
+                    Günlük Ped Paketleri
+                  </div>
+                  <div className="text-base opacity-70">10 Günlük ped</div>
+                </div>
+                <div>
+                  <DeleteForeverOutlinedIcon className="scale-125" />
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            <div
+              className="p-2 mb-2 w-full flex justify-between"
+              onClick={() => setisCartOpened((prev) => !prev)}
+            >
+              <div>
+                <span className="opacity-70 text-base">Toplam</span>
+                <span>
+                  <KeyboardArrowDownIcon
+                    className={
+                      isCartOpened
+                        ? "scale-125 opacity-80"
+                        : "rotate-180 scale-125 opacity-80"
+                    }
+                  />
+                </span>
+              </div>
+              <div className="opacity-60 text-lg">₺119,85</div>
             </div>
-            <div className="opacity-60 text-lg">₺119,85</div>
           </div>
           <button className="w-full text-base font-bold bg-[#343131] hover:bg-[#242121] transition-all text-white rounded-full py-3">
             Sepete Ekle
