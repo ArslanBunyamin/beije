@@ -21,7 +21,7 @@ const Navbar = (props: Props) => {
     " py-2 text-sm hover:underline decoration-[0.5px]";
 
   return (
-    <div className="fixed top-0 w-full">
+    <div className="fixed top-0 w-full z-10 ">
       <div className="p-5 bg-header text-black flex justify-center text-sm md:px-16 lg:px-44">
         <a href="https://beije.co" className="grow">
           <Image src={logo} alt="logo" className="min-w-12 w-12" />
