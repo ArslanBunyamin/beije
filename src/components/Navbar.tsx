@@ -22,7 +22,7 @@ const Navbar = (props: Props) => {
 
   return (
     <div className="fixed top-0 w-full z-10 ">
-      <div className="p-5 bg-header text-black flex justify-center text-sm md:px-16 lg:px-44">
+      <div className="p-5 bg-secondaryBg text-black flex justify-center text-sm md:px-16 lg:px-44">
         <a href="https://beije.co" className="grow">
           <Image src={logo} alt="logo" className="min-w-12 w-12" />
         </a>
@@ -56,7 +56,10 @@ const Navbar = (props: Props) => {
                 <CloseIcon />
               </button>
             ) : (
-              <button onClick={() => setisMenuOpen(true)}>
+              <button
+                onClick={() => setisMenuOpen(true)}
+                className=" before:absolute before:w-2.5 before:aspect-square before:-left-2 before:-top-1 before:rounded-full before:bg-red-600 before:animate-wink relative"
+              >
                 <MenuIcon />
               </button>
             )}
@@ -64,7 +67,7 @@ const Navbar = (props: Props) => {
         </div>
       </div>
       {isMenuOpen ? (
-        <div className="absolute w-full animate-scaleUp origin-top px-5 pb-5 bg-header text-black flex flex-col md:hidden shadow-xl">
+        <div className="absolute w-full animate-scaleUp origin-top px-5 pb-5 bg-secondaryBg text-black flex flex-col md:hidden shadow-xl">
           <div
             className={
               linkStyle +

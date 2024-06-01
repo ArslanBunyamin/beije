@@ -1,8 +1,8 @@
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Slider from "@mui/material/Slider";
 import { useState } from "react";
+import MuiSlider from "./MuiSlider";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -21,7 +21,7 @@ function CustomTabPanel(props: TabPanelProps) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box>{children}</Box>}
+      {value === index && <Box sx={{ paddingTop: "48px" }}>{children}</Box>}
     </div>
   );
 }
@@ -42,43 +42,12 @@ export default function BasicTabs() {
   const tabStyle = {
     textTransform: "none",
     width: "33.33%",
-    fontSize: "12px",
+    fontSize: "13px",
     padding: "0!important",
     fontWeight: "500",
     color: "#000",
     opacity: "0.9",
   };
-
-  const marks = [
-    {
-      value: 0,
-      label: "0",
-    },
-    {
-      value: 10,
-      label: "",
-    },
-    {
-      value: 20,
-      label: "",
-    },
-    {
-      value: 30,
-      label: "",
-    },
-    {
-      value: 40,
-      label: "",
-    },
-    {
-      value: 50,
-      label: "",
-    },
-    {
-      value: 60,
-      label: "60",
-    },
-  ];
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -98,46 +67,18 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <div className="pt-12">
-          <div className="text-sm py-2">Standard Ped</div>
-          <Slider
-            defaultValue={0}
-            valueLabelDisplay="auto"
-            shiftStep={30}
-            step={10}
-            marks={marks}
-            min={0}
-            max={60}
-            sx={{
-              color: "#000",
-            }}
-            slotProps={{
-              thumb: {
-                style: {
-                  boxShadow: "unset",
-                  width: "16px",
-                  height: "16px",
-                },
-                onMouseOver: (e) => {
-                  e.currentTarget.style.boxShadow =
-                    "0px 0px 0px 8px rgba(52, 49, 49, 0.16)";
-                },
-                onMouseOut: (e) => {
-                  e.currentTarget.style.boxShadow = "unset";
-                },
-              },
-              valueLabel: {
-                style: { color: "red" },
-              },
-            }}
-          />
-        </div>
+        <MuiSlider label="Standart Ped" range={60} />
+        <MuiSlider label="Süper Ped" range={60} />
+        <MuiSlider label="Süper+ Ped" range={60} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Item Two
+        <MuiSlider label="Günlük Ped" range={100} />
+        <MuiSlider label="Süper Günlük Ped" range={100} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Item Three
+        <MuiSlider label="Mini Tampon" range={60} />
+        <MuiSlider label="Standart Tampon" range={60} />
+        <MuiSlider label="Süper Tampon" range={60} />
       </CustomTabPanel>
     </Box>
   );

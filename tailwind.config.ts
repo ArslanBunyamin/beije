@@ -15,7 +15,7 @@ const config: Config = {
       },
       colors: {
         'customBg': '#f9f5f2',
-        'header': 'rgb(245, 245, 245)',
+        'secondaryBg': 'rgb(245, 245, 245)',
       },
       keyframes: {
         wink: {
