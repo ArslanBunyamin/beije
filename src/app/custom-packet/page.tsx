@@ -1,20 +1,21 @@
 "use client";
 
-import { useAppSelector, useAppDispatch } from "../../lib/hooks";
-import { decrement, increment } from "../../lib/features/counter/counterSlice";
+import { useAppSelector } from "../../lib/hooks";
 import Tabs from "../../components/MuiTabs";
 import Image from "next/image";
 import pedImage from "../../assets/packet.webp";
 import FlipCameraAndroidOutlinedIcon from "@mui/icons-material/FlipCameraAndroidOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Page() {
-  // The `state` arg is correctly typed as `RootState` already
-  const count = useAppSelector((state) => state.counterSlice.value);
-  const dispatch = useAppDispatch();
+  const cart = useAppSelector((state) => state.cart?.cart);
   const [isCartOpened, setisCartOpened] = useState(false);
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   return (
     <div className="bg-customBg text-black min-h-screen text-sm flex justify-center p-5 px-8 lg:px-44">

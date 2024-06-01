@@ -67,18 +67,50 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <MuiSlider label="Standart Ped" range={60} />
-        <MuiSlider label="Süper Ped" range={60} />
-        <MuiSlider label="Süper+ Ped" range={60} />
+        <MuiSlider
+          productType={{ type: "ped", subtype: "standartPed" }}
+          label="Standart Ped"
+          range={60}
+        />
+        <MuiSlider
+          productType={{ type: "ped", subtype: "superPed" }}
+          label="Süper Ped"
+          range={60}
+        />
+        <MuiSlider
+          productType={{ type: "superPed", subtype: "superPlusPed" }}
+          label="Süper+ Ped"
+          range={60}
+        />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <MuiSlider label="Günlük Ped" range={100} />
-        <MuiSlider label="Süper Günlük Ped" range={100} />
+        <MuiSlider
+          productType={{ type: "gunlukPed", subtype: "gunlukPed" }}
+          label="Günlük Ped"
+          range={100}
+        />
+        <MuiSlider
+          productType={{ type: "gunlukPed", subtype: "superGunlukPed" }}
+          label="Süper Günlük Ped"
+          range={100}
+        />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <MuiSlider label="Mini Tampon" range={60} />
-        <MuiSlider label="Standart Tampon" range={60} />
-        <MuiSlider label="Süper Tampon" range={60} />
+        <MuiSlider
+          productType={{ type: "tampon", subtype: "miniTampon" }}
+          label="Mini Tampon"
+          range={60}
+        />
+        <MuiSlider
+          productType={{ type: "tampon", subtype: "standartTampon" }}
+          label="Standart Tampon"
+          range={60}
+        />
+        <MuiSlider
+          productType={{ type: "tampon", subtype: "superTampon" }}
+          label="Süper Tampon"
+          range={60}
+        />
       </CustomTabPanel>
     </Box>
   );
