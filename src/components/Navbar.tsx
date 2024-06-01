@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../assets/logo.svg";
+import logo from "../assets/logo.svg";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 type Props = {};
@@ -13,7 +13,12 @@ const Navbar = (props: Props) => {
         <Image src={logo} alt="logo" className="min-w-12 w-12" />
       </a>
       <div className="flex items-center gap-5">
-        <div className="before:absolute before:w-2 before:aspect-square before:-left-2 before:-top-1 before:rounded-full before:bg-red-600 before:animate-wink relative text-nowrap cursor-pointer border-b-black border-b border-opacity-0 hover:border-opacity-100 transition-all">
+        <div
+          className={
+            linkStyle +
+            " before:absolute before:w-2 before:aspect-square before:-left-2 before:-top-1 before:rounded-full before:bg-red-600 before:animate-wink relative"
+          }
+        >
           Ürünler
         </div>
         <div className={linkStyle}>Biz Kimiz?</div>
@@ -21,7 +26,7 @@ const Navbar = (props: Props) => {
         <div className={linkStyle}>Regl Testi!</div>
         <div className={linkStyle}>Kendi Paketini Oluştur</div>
       </div>
-      <div className="flex gap-3 items-center text-xl">
+      <div className="flex gap-3 items-center text-md">
         <ShoppingCartOutlinedIcon />
         <PersonOutlineOutlinedIcon />
       </div>

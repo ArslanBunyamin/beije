@@ -9,15 +9,6 @@ export default function Page() {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="bg-customBg text-black minhscreen">
-      <div>{count}</div>
-      <button
-        onClick={() => {
-          dispatch(increment());
-        }}
-      >
-        increment
-      </button>
-    </div>
+    <div className="bg-customBg text-black min-h-screen flex justify-center"></div>
   );
 }
