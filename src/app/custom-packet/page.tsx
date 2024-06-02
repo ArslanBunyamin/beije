@@ -206,7 +206,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="fixed md:hidden bottom-0 bg-secondaryBg shadow shadow-black w-full flex flex-col p-3">
+        <div className="fixed z-10 md:hidden bottom-0 bg-secondaryBg shadow shadow-black w-full flex flex-col p-3">
           <div className="flex flex-col gap-5">
             {isCartOpened ? (
               <div className="flex items-center gap-3 p-2 shadow animate-scaleUp">
