@@ -1,7 +1,8 @@
+import { SubProduct } from "@/app/custom-packet/page";
 import { setGunlukPed, setPed, setTampon } from "@/lib/features/cart/cartSlice";
-import { useAppDispatch } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import Slider from "@mui/material/Slider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   label: string;
@@ -13,6 +14,8 @@ type Props = {
 };
 
 const MuiSlider = (props: Props) => {
+  const cart = useAppSelector((state) => state.cart?.cart);
+
   const range = props.range;
   const productType = props.productType;
 
@@ -24,6 +27,13 @@ const MuiSlider = (props: Props) => {
       ? { value: i * 10, label: String(i * 10) }
       : { value: i * 10, label: "" };
   });
+  const product = cart[productType.type as keyof typeof cart];
+  const subProduct: SubProduct =
+    product[productType.subtype as keyof typeof product];
+
+  useEffect(() => {
+    setsliderValue(() => subProduct.quantity);
+  }, [subProduct]);
 
   const slideHandler = (e: Event, newValue: number | number[]) => {
     setsliderValue(newValue as number);
@@ -57,8 +67,8 @@ const MuiSlider = (props: Props) => {
         marks={marks}
         min={0}
         max={range}
-        value={sliderValue}
         onChange={slideHandler}
+        value={sliderValue}
         sx={{
           color: "#333",
           ".MuiSlider-thumb:active, .MuiSlider-thumb:hover, .MuiSlider-thumb:focus":

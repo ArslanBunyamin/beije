@@ -78,7 +78,7 @@ export default function BasicTabs() {
           range={60}
         />
         <MuiSlider
-          productType={{ type: "superPed", subtype: "superPlusPed" }}
+          productType={{ type: "ped", subtype: "superPlusPed" }}
           label="Süper+ Ped"
           range={60}
         />

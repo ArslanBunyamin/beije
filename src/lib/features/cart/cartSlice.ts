@@ -5,18 +5,18 @@ import type { RootState } from '../../store'
 export interface CartState {
     cart: {
         ped: {
-            standartPed: number,
-            superPed: number,
-            superPlusPed: number
+            standartPed: { name: string, quantity: number, pricePerTen: number },
+            superPed: { name: string, quantity: number, pricePerTen: number },
+            superPlusPed: { name: string, quantity: number, pricePerTen: number }
         },
         gunlukPed: {
-            gunlukPed: number,
-            superGunlukPed: number,
+            gunlukPed: { name: string, quantity: number, pricePerTen: number },
+            superGunlukPed: { name: string, quantity: number, pricePerTen: number },
         },
         tampon: {
-            miniTampon: number,
-            standartTampon: number,
-            superTampon: number
+            miniTampon: { name: string, quantity: number, pricePerTen: number },
+            standartTampon: { name: string, quantity: number, pricePerTen: number },
+            superTampon: { name: string, quantity: number, pricePerTen: number }
         }
     }
 }
@@ -25,18 +25,18 @@ export interface CartState {
 const initialState: CartState = {
     cart: {
         ped: {
-            standartPed: 0,
-            superPed: 0,
-            superPlusPed: 0
+            standartPed: { name: "Standart Ped", quantity: 0, pricePerTen: 19 },
+            superPed: { name: "Süper Ped", quantity: 0, pricePerTen: 19 },
+            superPlusPed: { name: "Süper+ Ped", quantity: 0, pricePerTen: 19 }
         },
         gunlukPed: {
-            gunlukPed: 0,
-            superGunlukPed: 0,
+            gunlukPed: { name: "Günlük Ped", quantity: 0, pricePerTen: 19 },
+            superGunlukPed: { name: "Süper Günlük Ped", quantity: 0, pricePerTen: 19 },
         },
         tampon: {
-            miniTampon: 0,
-            standartTampon: 0,
-            superTampon: 0
+            miniTampon: { name: "Mini Tampon", quantity: 0, pricePerTen: 19 },
+            standartTampon: { name: "Standart Tampon", quantity: 0, pricePerTen: 19 },
+            superTampon: { name: "Süper tampon", quantity: 0, pricePerTen: 19 }
         }
     }
 }
@@ -53,20 +53,30 @@ export const cartSlice = createSlice({
     reducers: {
 
         setPed: (state, action: PayloadAction<PayloadType>) => {
-            state.cart.ped[action.payload.pedType as keyof typeof state.cart.ped] = action.payload.value
+            state.cart.ped[action.payload.pedType as keyof typeof state.cart.ped].quantity = action.payload.value
         },
 
         setGunlukPed: (state, action: PayloadAction<PayloadType>) => {
-            state.cart.gunlukPed[action.payload.pedType as keyof typeof state.cart.gunlukPed] = action.payload.value
+            state.cart.gunlukPed[action.payload.pedType as keyof typeof state.cart.gunlukPed].quantity = action.payload.value
         },
 
         setTampon: (state, action: PayloadAction<PayloadType>) => {
-            state.cart.tampon[action.payload.pedType as keyof typeof state.cart.tampon] = action.payload.value
+            state.cart.tampon[action.payload.pedType as keyof typeof state.cart.tampon].quantity = action.payload.value
+        },
+
+        pedSifirla: (state) => {
+            state.cart.ped = initialState.cart.ped
+        },
+        gunlukPedSifirla: (state) => {
+            state.cart.gunlukPed = initialState.cart.gunlukPed
+        },
+        tamponSifirla: (state) => {
+            state.cart.tampon = initialState.cart.tampon
         }
     }
 })
 
-export const { setPed, setGunlukPed, setTampon } = cartSlice.actions
+export const { setPed, setGunlukPed, setTampon, pedSifirla, gunlukPedSifirla, tamponSifirla } = cartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCart = (state: RootState) => state.cart
