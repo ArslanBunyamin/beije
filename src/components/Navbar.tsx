@@ -18,7 +18,7 @@ const Navbar = (props: Props) => {
   const underlineAnimation =
     " after:opacity-0 after:block after:h-[0.5px] after:bg-black after:transition-all after:duration-500 hover:after:opacity-100";
   const extraMobileLinkStyle =
-    " py-2 text-sm hover:underline decoration-[0.5px]";
+    " py-2 text-sm hover:underline decoration-[0.5px] flex";
 
   return (
     <div className="fixed top-0 w-full z-10 ">
