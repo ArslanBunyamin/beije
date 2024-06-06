@@ -23,7 +23,7 @@ export default function RootLayout({
       <StoreProvider>
         <body className={inter.className}>
           <AppRouterCacheProvider>
-            <div className="h-screen">
+            <div className="min-h-screen">
               <Navbar />
               <div className="pt-16 h-full">{children}</div>
               <Footer />
