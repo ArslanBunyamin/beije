@@ -83,7 +83,7 @@ export default function Page() {
             <Tabs />
           </div>
         </div>
-        <div id="right-side" className="hidden md:flex z-10">
+        <div id="right-side" className="hidden md:flex">
           <div className="w-full shadow-xl rounded-xl flex flex-col gap-6 p-7 bg-white">
             <div className="flex flex-col gap-5">
               <div className="text-2xl font-medium">Özel Paketin</div>
